@@ -23,7 +23,7 @@ int channel2 = 1;
 int channel3 = 2;
 int channel4 = 3;
 // LiveNote and other music properties
-LiveNote note;
+LiveNote note, note2;
 //int BPM = 70;
 int milsPassed = 0;
 int lastMils = 0;
@@ -57,6 +57,8 @@ void draw() {
         if (milsPassed - lastMils >= INTERVAL) {
             note = new LiveNote(pitch, channel1, INTERVAL, 127);
             this.registerDraw(note);
+            //note2 = new LiveNote(pitch + 7, channel2, INTERVAL, 127);
+            //this.registerDraw(note2);
             lastMils = milsPassed;
         }     
     }
