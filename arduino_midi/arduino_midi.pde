@@ -22,8 +22,9 @@ int channel1 = 0;
 int channel2 = 1;
 int channel3 = 2;
 int channel4 = 3;
-// LiveNote and other music properties
-LiveNote note, note2;
+// RiriNote and other music properties
+//LiveNote note, note2;
+RiriNote note, note2;
 //int BPM = 70;
 int milsPassed = 0;
 int lastMils = 0;
@@ -55,10 +56,14 @@ void draw() {
     milsPassed = millis();
     if (play) {
         if (milsPassed - lastMils >= INTERVAL) {
-            note = new LiveNote(pitch, channel1, INTERVAL, 127);
+            //note = new LiveNote(pitch, channel1, INTERVAL, 127);
+            note = new RiriNote(channel1, pitch, 127, INTERVAL);
+            note.play();
             this.registerDraw(note);
             //note2 = new LiveNote(pitch + 7, channel2, INTERVAL, 127);
-            //this.registerDraw(note2);
+            note2 = new RiriNote(channel2, pitch + 7, 127, INTERVAL);
+            note2.play();
+            this.registerDraw(note2);
             lastMils = milsPassed;
         }     
     }
